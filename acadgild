@@ -1,0 +1,51 @@
+1. Explain about the different complex data types in pig ?
+Pig supports 3 complex data types-
+Tuple : An ordered set of fields. Tuple is represented by braces. Example: (1,2)
+Bag : A set of tuples is called a bag. Bag is represented by flower or curly braces. Example: {(1,2),(3,4)}
+Map : A set of key value pairs. Map is represented in a square brackets. Example: [key#value] .The # is used to separate key and value.
+
+ How can you interact with the shell in Apache pig ?
+ The shell in apache pig is called grunt shell, if you are talking about this grunt shell then you can launch by using simple 
+ command “pig” or “pig -x local”.
+If you are talking about interacting with linux terminal from pig’s grunt shell then you can use “sh” prefix followed by linux terminal
+commands in pig grunt shell.
+For example you can list your files in your current directory from grunt shell as
+grunt> sh ls -l
+However, the latest version of pig as of now 0.16 supports a few commands even with out using this prefix “sh”
+
+ Explain how pig differs from Map reduce ?
+ PIG is a data flow language, the key focus of Pig is manage the flow of data from input source to output store. As part of managing this
+ data flow it moves data feeding it to process1, taking output and feeding it to process2. The core features are preventing execution of
+ subsequent stages if previous stage fails, manages temporary storage of data and most importantly compresses and rearranges processing 
+ steps for faster processing. While this can be done for any kind of processing tasks Pig is written specifically for managing data flow
+ of Map reduce type of jobs. Most if not all jobs in a Pig are map reduce jobs or data movement jobs. Pig allows for custom functions to
+ be added which can be used for processing in Pig, some default ones are like ordering, grouping, distinct, count etc.
+ Map reduce on the other hand is a data processing paradigm, it is a framework for application developers to write code in so that its 
+ easily scaled to PB of tasks, this creates a separation between the developer that writes the application vs the developer that scales 
+ the application. Not all applications can be migrated to Map reduce but good few can be including complex ones like k-means to simple
+ ones like counting uniques in a dataset.
+ 
+ Explain how pig differs from sql?
+SQL is declarative and Pig is procedural to a large extent.
+SQL is a general purpose database language that has extensively been used for both transactional and analytical queries. Hive, on the
+other hand, is built with an analytical focus.
+Hive support only structured data and have a distributed data warehouse.
+Hive use separate query language called HQL goes beyond standard SQL.Pig use own language called piglatin is the relational flow language.
+pig can process both structured and unstructured data. It is a data flow language and environment for exploring very large datasets.
+SQL is the oldest data analysis option among the three and its ability to update itself in line with growing user expectations make it
+relevant even today.
+
+ Explain the scalar data types in pig?
+ Int: An integer. Ints are represented in interfaces by java.lang.Integer. They store a four byte signed integer. Constant integers are
+ expressed as integer numbers, for example 12. 
+Long: A long integer. Long are represented in interfaces by java.lang.Long. They store a eight byte signed integer. Constants are
+expressed as integer numbers with a L appended, for example 34L.
+Float: A floating point number. Floats are represented in interfaces by java.lang.Float. They store a four byte floating point number.
+Constants are represented as floating point numbers with f appended, for example, 2.18f.
+Double: A double precision floating point number. Doubles are represented in interfaces by java.lang.Double. They store a eight byte 
+floating point number. Constants are represented either as floating point numbers or in exponent notation, for example, 32.12567 or
+3e-17.
+Chararray: A string or array of characters. Represented in interfaces by java.lang.String. Constant chararrays are represented by 
+single quotes, for example, 'constant chararray'.
+Bytearray: A blob or array of bytes. Represented by java class DataByteArray which wraps a java byte[]. There is no way to specify 
+a bytearray constant.
